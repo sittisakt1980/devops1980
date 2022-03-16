@@ -1,0 +1,26 @@
+#WorkFlowName
+name: SimpleCI
+
+# Trigger
+on: 
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+  
+  workflow_dispatch:
+  
+jobs:
+  
+    build:
+      runs-on: ubunta-latest 
+      steps:
+        - uses: action/checkout@v2
+        
+        - name: Run a one-line script
+          run: echo Hello , World!
+          
+        - name: Run a multiple Line Script
+          run: |
+            echo add other action to build,
+            echo test, and deploy your project
